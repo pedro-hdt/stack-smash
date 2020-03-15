@@ -12,3 +12,10 @@ make
 python3 build_exploit.py <FILENAME>
 echo -ne 'run\n-1' | gdb rop
 ```
+
+### Limitations
+
+Please note that this exploit can only print complete files if their size is up 
+to 24576 bytes. For larger files, one could use the buffer iteratively by and
+print a chunk of up to 24576 bytes at a time. For the purpose of this exercise
+it seems unnecessary to implement such solution.
