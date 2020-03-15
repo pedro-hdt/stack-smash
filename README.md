@@ -1,4 +1,11 @@
-# CS3235 - Assignment on memeory corruption attacks
+# CS3235 - Assignment 2 - Memory Corruption Attacks
+
+Each exrecise's folder contains a script that runs the exploit as described 
+below. To use it simply run:
+```
+chmod +x ./exploit.sh
+./exploit.sh
+```
 
 ## 1 - Buffer Overflow 
 
@@ -43,3 +50,4 @@ Please note that this exploit can only print complete files if their size is up
 to 24576 bytes. For larger files, one could use the buffer iteratively by and
 print a chunk of up to 24576 bytes at a time. For the purpose of this exercise
 it seems unnecessary to implement such solution.
+
