@@ -1,11 +1,16 @@
 # CS3235 - Assignment 2 - Memory Corruption Attacks
 
-Each exrecise's folder contains a script that runs the exploit as described 
+Each exercise's folder contains a script that runs the exploit as described 
 below. To use it simply run:
 ```
 chmod +x ./exploit.sh
 ./exploit.sh
 ```
+
+The required payloads are generated and written into their files using python
+scripts. For buffer overflow, the executable is ran once to collect the address
+of the buffer that is then used to build the payload. Even though ASLR should be
+off this
 
 ## 1 - Buffer Overflow 
 
@@ -47,7 +52,7 @@ echo -ne 'run\n-1' | gdb rop
 ### Limitations
 
 Please note that this exploit can only print complete files if their size is up 
-to 24576 bytes. For larger files, one could use the buffer iteratively by and
-print a chunk of up to 24576 bytes at a time. For the purpose of this exercise
+to 24576 bytes. For larger files, one could use the buffer iteratively and
+print one chunk of up to 24576 bytes at a time. For the purpose of this exercise
 it seems unnecessary to implement such solution.
 
