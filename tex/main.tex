@@ -153,8 +153,7 @@ The \texttt{read} function needs the file descriptor returned by open. Since fil
 
 The buffer for the file data can be any writable memory location so we opted for a segment in \texttt{libc} that spans addresses \texttt{0x00007ffff7dd1000} to \texttt{0x00007ffff7dd7000}  which is 24576 bytes long, and was identified using the command \texttt{vmmap} in \texttt{gdb}.
 
-The filename can be stored at the beginning of the buffer \texttt{buf}, which we identified in \texttt{gdb} as \texttt{0x7fffffffddc0}. This will be hard-coded as ASLR is supposed to be off. We considered the possibility of using an environment variable, but in that case the address would change in each new terminal session. 
-
+The filename can be stored at the beginning of the buffer \texttt{buf}, which can be identified in \texttt{gdb}. This will vary even though ASLR is supposed to be off and so the script that generates this part of the payload always asks the user to input the value. We considered the possibility of using an environment variable, but in that case the address would also change in each new terminal session. 
 
 \subsection{Passing arguments to the functions}
 
