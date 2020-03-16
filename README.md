@@ -10,7 +10,8 @@ chmod +x ./exploit.sh
 The required payloads are generated and written into their files using python
 scripts. For buffer overflow, the executable is ran once to collect the address
 of the buffer that is then used to build the payload. Even though ASLR should be
-off this
+off this was first implemented as the addresses may change when the system 
+reboots.
 
 ## 1 - Buffer Overflow 
 
@@ -27,7 +28,8 @@ python3 build_exploits.py
 ## 2 - Format String Attack
 
 The script build_exploit.py automatically generates the file (exploit) 
-such that running `./format_string < exploit` causes a shell to be spawned.
+such that running `./format_string < exploit` causes the program to print 
+"You won!"
 
 To run the attack just use the sequence of commands:
 ```
@@ -39,7 +41,10 @@ python3 build_exploit.py
 ## 3 - Return-Oriented Programming
 
 The script build_exploit.py automatically generates the file (exploit) 
-such that running `./format_string < exploit` causes a shell to be spawned.
+such that running `echo -ne 'run\n-1' | gdb rop` causes the chosen file to
+be printed to stdout.
+
+This exploit does NOT work outside of gdb.
 
 To run the attack just use the sequence of commands, replacing \<FILENAME\> by the
 name of the file to leak. Note that it be at most 55 characters long.
