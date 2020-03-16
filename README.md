@@ -13,6 +13,10 @@ of the buffer that is then used to build the payload. Even though ASLR should be
 off this was first implemented as the addresses may change when the system 
 reboots.
 
+These exploits were designed for a 64 bit Ubuntu 16.04 LTS machine. For details 
+on how the payloads are generated consult the source code of the Python scripts
+ included.
+
 ## 1 - Buffer Overflow 
 
 The script build_exploits.py automatically generates the files (exploit1 and
